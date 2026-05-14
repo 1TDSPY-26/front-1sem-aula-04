@@ -8,7 +8,7 @@
 
 // console.log("TIPOS"); 
 // console.log(typeof null); 
-// console.log(typeof {}); 
+// console.log(typeof {});  
 // console.log(typeof []); 
 // console.log(typeof 'a');
 // console.log(typeof true);
@@ -34,26 +34,80 @@
 // let nome2 = "Jonas";
 
 // if(true){
-//     var nome1 = "Carlos";
-//     let nome2 = "Matos";
-// }
+    //     var nome1 = "Carlos";
+    //     let nome2 = "Matos";
+    // }
+    
+    // console.log(nome1);
+    // console.log(nome2);
+    
+    // const pessoa = {
+        //     nome  : "José",
+        //     idade : 33,
+        //     casado: true,
+        //     email : "email@email.com"
+        // }
+        
+        // //Imprimindo os dados do objeto:
+        // //Concatenação padrão:
+        // console.log(botaoEntrar.textContent);
+        // botaoEntrar.textContent = "OK";
+        // console.log(botaoEntrar.textContent);
+        
+        // botaoEntrar.style.backgroundColor = "yellow";
+        
+            // function soma(){
+            //     let result = 2+2;
+            //     console.log(result);
+            //     return result;
+            // }
+        // console.log(pessoa.nome + " tem " + pessoa.idade + " anos de idade e " + (pessoa.casado ? "é casado " : "não é casado " ) + " caso queira entrar em contato com ele envie um email para " + pessoa.email);
 
-// console.log(nome1);
-// console.log(nome2);
+// //Template literals com interpolação:
+// console.log(`${pessoa.nome}  tem  ${pessoa.idade}  anos de idade e  ${(pessoa.casado ? "é casado " : "não é casado " )}, caso queira entrar em contato com ele envie um email para ${pessoa.email}`);
 
-const pessoa = {
-    nome  : "José",
-    idade : 33,
-    casado: true,
-    email : "email@email.com"
+
+// //Alterando um dado do objeto:
+// pessoa.nome = "José da Couves";
+// console.log(pessoa.nome);
+// console.table(pessoa);
+
+const usuario = {
+    id:1,
+    email: "email@email.com",
+    senha: "12345",
+    nome: "Antonio Alves"
 }
 
-//Imprimindo os dados do objeto:
-//Concatenação padrão:
-console.log(pessoa.nome + " tem " + pessoa.idade + " anos de idade e " + (pessoa.casado ? "é casado " : "não é casado " ) + " caso queira entrar em contato com ele envie um email para " + pessoa.email);
+const botaoEntrar = document.getElementById("btnEntrar");
 
-//Template literals com interpolação:
-console.log(`${pessoa.nome}  tem  ${pessoa.idade}  anos de idade e  ${(pessoa.casado ? "é casado " : "não é casado " )}, caso queira entrar em contato com ele envie um email para ${pessoa.email}`);
+botaoEntrar.addEventListener("click" , function(evento){
+    
+    //Controlando o comportamento padrão do FORM
+    evento.preventDefault();
 
+    //Capturar os campos de texto e imprimir seus valores através das propriedades .value
+    const email = document.getElementById("idEmail");
+    const senha = document.getElementById("idSenha");
 
+    console.log(email.value);
+    console.log(senha.value);
 
+    // setTimeout( ()=>{
+    //     document.getElementsByTagName("form")[0].submit();
+    // },5000 );
+
+    try {
+        if (usuario) {
+            if( (usuario.email === email.value) && (usuario.senha === senha.value) ){
+                alert("Login realizado com sucesso!");
+                window.location.href = "../index.html";
+            }else{
+                throw new Error("Senha ou Email inválidos!");
+            }
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+} );
