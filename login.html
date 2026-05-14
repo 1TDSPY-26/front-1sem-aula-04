@@ -8,7 +8,7 @@
     <link rel="icon" href="./img/favicon.png" />
     <link rel="stylesheet" href="./css/main.css" />
 
-    <script src=".js/script.js"></script>
+    <script src=".js/script.js" defer></script>
 
 </head>
 
@@ -29,13 +29,17 @@
             <div class="hero__container hero__container--index">
                 <h1 class="hero__title">CONTROLE DE ACESSO</h1>
 
+
+
+
+
                     <form action="/index.php" method="GET">
                         <fieldset>
                             <legend>LOGIN</legend>
                             <div>
                                 <label for="idEmail">Email</label>
                                 <input type="email" name="email" id="idEmail" placeholder="Digite seu Email"
-                                minlength="13" maxlength="150" required oninvalid="this.setCustomValidity('Verifique suas informações')"> 
+                                minlength="13" maxlength="150" oninvalid="this.setCustomValidity('Verifique suas informações')"> 
                             </div>
                             <div>
                                 <label for="idSenha">Senha</label>
